@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>画像切り取り</title>
+  <meta name="theme-color" content="#111418">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="画像切り取り">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="bar">
+    <h1>画像切り取り</h1>
+    <label class="btn" for="fileInput">画像を選ぶ</label>
+    <input id="fileInput" class="visually-hidden" type="file" accept="image/*">
+  </header>
+
+  <form id="sizeForm" class="controls" novalidate>
+    <label class="field">
+      <span>幅</span>
+      <input id="widthInput" type="number" inputmode="numeric" min="1" step="1" placeholder="px" disabled>
+    </label>
+    <span class="times">×</span>
+    <label class="field">
+      <span>高さ</span>
+      <input id="heightInput" type="number" inputmode="numeric" min="1" step="1" placeholder="px" disabled>
+    </label>
+    <button id="showBoxBtn" class="btn" type="submit" disabled>枠を表示</button>
+  </form>
+
+  <p id="message" class="message" role="status"></p>
+
+  <main id="stage" class="stage">
+    <p id="placeholder" class="placeholder">「画像を選ぶ」から切り取りたい画像を読み込んでください</p>
+    <div id="viewport" class="viewport" hidden>
+      <img id="image" alt="" draggable="false">
+      <div id="cropBox" class="crop-box" hidden>
+        <span class="handle nw" data-handle="nw"></span>
+        <span class="handle ne" data-handle="ne"></span>
+        <span class="handle sw" data-handle="sw"></span>
+        <span class="handle se" data-handle="se"></span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bar bottom">
+    <span id="imageInfo" class="info"></span>
+    <button id="confirmBtn" class="btn primary" type="button" disabled>確定</button>
+  </footer>
+
+  <dialog id="formatDialog" class="dialog">
+    <h2>保存形式を選ぶ</h2>
+    <p id="formatSummary"></p>
+    <div class="dialog-actions">
+      <button class="btn primary" type="button" data-type="image/jpeg">JPEG</button>
+      <button class="btn primary" type="button" data-type="image/png">PNG</button>
+      <button class="btn" type="button" data-type="">キャンセル</button>
+    </div>
+  </dialog>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

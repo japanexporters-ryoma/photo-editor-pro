@@ -1,0 +1,17 @@
+{
+  "name": "画像切り取り",
+  "short_name": "切り取り",
+  "description": "幅と高さをピクセルで指定して画像を切り取るアプリ",
+  "lang": "ja",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#111418",
+  "background_color": "#111418",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
